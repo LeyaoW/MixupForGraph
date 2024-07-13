@@ -1,5 +1,7 @@
 import os.path as osp
 import os
+import secrets
+
 os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
 import argparse
@@ -14,7 +16,6 @@ import torch_geometric.transforms as T
 
 import pdb
 import numpy as np
-import random
 import copy
 import argparse
 
@@ -113,7 +114,7 @@ torch.manual_seed(SEED)
 if torch.cuda.is_available():
     torch.cuda.manual_seed(SEED)
 np.random.seed(SEED)  # Numpy module.
-random.seed(SEED)  # Python random module.
+secrets.SystemRandom().seed(SEED)  # Python random module.
 
 
 # load data
